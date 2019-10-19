@@ -15,11 +15,11 @@ emb_numargs(PyObject *self, PyObject *args)
 // https://docs.python.org/ja/3/c-api/structures.html#c.PyMethodDef
 static PyMethodDef EmbMethods[] = {
     {
-        "numargs",          // ml_name: method name
-        emb_numargs,        // ml_meth: pointer to c function
-        METH_VARARGS,       // ml_flags: call flags
+        "numargs",          // ml_name  : method name
+        emb_numargs,        // ml_meth  : pointer to c function
+        METH_VARARGS,       // ml_flags : call flags
         "Return the number of arguments received by the process."
-                            // ml_doc: pointer to docstring
+                            // ml_doc   : pointer to docstring
     },
     {NULL, NULL, 0, NULL}   // SENTINEL
 };
@@ -27,14 +27,14 @@ static PyMethodDef EmbMethods[] = {
 // https://docs.python.org/ja/3/c-api/module.html#c.PyModuleDef
 static PyModuleDef EmbModule = {
     PyModuleDef_HEAD_INIT,  // m_base: always PyModuleDef_HEAD_INIT
-    "embf",     // m_name   : module_name
-    NULL,       // m_doc    : pointer to docstring
-    -1,         // m_size   : for sub-interperter support
-    EmbMethods, // m_methods: pointer to method table
-    NULL,       // m_slots  :
-    NULL,       // m_traverse:
-    NULL,       // m_clear  :
-    NULL        // m_free   : pointer to destructor for this module
+    "embf",     // m_name       : module_name
+    NULL,       // m_doc        : pointer to docstring
+    -1,         // m_size       : for sub-interperter support
+    EmbMethods, // m_methodsq   : pointer to method table
+    NULL,       // m_slots      :
+    NULL,       // m_traverse   :
+    NULL,       // m_clear      :
+    NULL        // m_free       : pointer to destructor for this module
 };
 
 static PyObject*
